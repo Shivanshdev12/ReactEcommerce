@@ -1,9 +1,19 @@
-import React from "react";
-import Header from "./components/Header";
-import Products from "./components/Products";
+import React, { useState } from "react";
+import Header from "./components/Layout/Header";
+import Products from "./components/Product/Products";
+import Footer from "./components/Layout/Footer";
+import Button from "./components/UI/Button";
+import Cart from "./components/Cart/Cart";
 import "./App.css";
 
 function App() {
+  const [isCartOpen, setCartOpen] = useState(false);
+  const closeHandler = () => {
+    setCartOpen(false);
+  };
+  const openHandler = () => {
+    setCartOpen(true);
+  };
   const PRODUCTS_ARR = [
     {
       title: "Colors",
@@ -28,11 +38,13 @@ function App() {
   ];
   return (
     <React.Fragment>
-      <Header />
+      <Header onOpen={openHandler} />
       <main>
         <Products items={PRODUCTS_ARR} />
       </main>
-      <button type="submit">See the Cart</button>
+      {isCartOpen && <Cart onClose={closeHandler} />}
+      <Button>See the Cart</Button>
+      <Footer />
     </React.Fragment>
   );
 }

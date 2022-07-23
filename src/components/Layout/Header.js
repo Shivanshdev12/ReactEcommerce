@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
+import Button from "../UI/Button";
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Fragment>
       <div className="container">
@@ -9,7 +10,9 @@ const Header = () => {
           <li>Home</li>
           <li>Store</li>
           <li>About</li>
-          <li>Cart</li>
+          <li>
+            <Button onClick={props.onOpen}>Cart</Button>
+          </li>
         </ul>
       </div>
       <div className="header">
