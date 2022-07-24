@@ -1,41 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 import Button from "../UI/Button";
 import CartItem from "./CartItem";
 import "./Cart.css";
 
 const Cart = (props) => {
-  const cartElements = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ];
-
+  const ctxobj = useContext(CartContext);
+  let amount = 0;
+  ctxobj.items.map((item) => {
+    amount = amount + Number(item.quantity) * Number(item.price);
+  });
   return (
     <Modal>
-      <CartItem items={cartElements} />
+      <CartItem />
       <div className="total">
-        <span>Total</span>
-        <span>$0</span>
+        <span>
+          <b>Total </b>
+        </span>
+        <span>${amount}</span>
       </div>
-      <Button onClick={props.onClose}>x</Button>
+      <Button onClick={props.onClose}>CLOSE</Button>
       <Button>PURCHASE</Button>
     </Modal>
   );

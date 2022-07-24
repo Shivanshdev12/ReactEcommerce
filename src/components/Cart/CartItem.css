@@ -5,7 +5,7 @@ ul.cart-items li {
 }
 
 .cart-img {
-    width: 100px;
+    width: calc(100px - 5%);
 }
 
 .btn-remove {

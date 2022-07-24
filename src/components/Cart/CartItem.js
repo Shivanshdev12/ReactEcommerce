@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../store/cart-context";
 import Button from "../UI/Button";
 import "./CartItem.css";
 
 const CartItem = (props) => {
+  const ctxobj = useContext(CartContext);
+  const removeHandler = (item) => {
+    ctxobj.removeItem(item);
+  };
   const cartItems = (
     <ul className="cart-items">
       <li>
@@ -11,11 +16,16 @@ const CartItem = (props) => {
         <h4>QUANTITY</h4>
       </li>
       <hr />
-      {props.items.map((item) => (
+      {ctxobj.items.map((item) => (
         <li key={Math.random() * 10}>
           <img src={item.imageUrl} alt={item.title} className="cart-img" />
           <p>{item.title}</p>
-          <Button className="btn-remove">REMOVE</Button>
+          <p>
+            <b>{item.quantity}</b>
+          </p>
+          <Button className="btn-remove" onClick={removeHandler.bind(null, item)}>
+            REMOVE
+          </Button>
         </li>
       ))}
       <hr />
