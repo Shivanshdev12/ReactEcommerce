@@ -24,3 +24,13 @@ ul.header-items li {
     color: #fff;
     background-color: #20232A;
 }
+
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.active {
+    color: rgb(83, 154, 182);
+    text-decoration: none;
+}

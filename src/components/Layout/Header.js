@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from "react";
+import { NavLink } from "react-router-dom";
 import CartContext from "../../store/cart-context";
 import Button from "../UI/Button";
 import "./Header.css";
@@ -14,9 +15,21 @@ const Header = (props) => {
     <Fragment>
       <div className="container">
         <ul className="header-items">
-          <li>Home</li>
-          <li>Store</li>
-          <li>About</li>
+          <li>
+            <NavLink className="link" activeClassName="active" to="/Home">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="link" activeClassName="active" to="/Store">
+              Store
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="link" activeClassName="active" to="/About">
+              About
+            </NavLink>
+          </li>
           <li>
             <Button onClick={props.onOpen}>Cart </Button>({totalQuantity})
           </li>

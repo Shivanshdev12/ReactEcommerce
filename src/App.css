@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.cart {
+  padding: 15px 25px;
+  margin-top: 4rem;
+  margin-bottom: -4rem;
+  background-color: #20232A;
+  font-weight: 500;
+  border: 2px solid #56CCF2;
+  color: #fff;
+}
