@@ -1,7 +1,7 @@
 .container {
     text-align: center;
     width: 100%;
-    background-color: #414141;
+    background-color: #20232A;
     color: #fff;
     margin-top: -1em;
     padding: 1em 0 1em 0;
@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    column-gap: 1px;
 }
 
 ul.header-items li {
@@ -22,7 +23,7 @@ ul.header-items li {
     justify-content: center;
     text-align: center;
     color: #fff;
-    background-color: #20232A;
+    background-color: #233142;
 }
 
 .link {

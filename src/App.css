@@ -9,5 +9,7 @@
   background-color: #20232A;
   font-weight: 500;
   border: 2px solid #56CCF2;
+  box-shadow: 0 2px 2px 0 #20232A;
+  border-radius: 20px;
   color: #fff;
 }

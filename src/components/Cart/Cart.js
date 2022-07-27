@@ -20,8 +20,10 @@ const Cart = (props) => {
         </span>
         <span>${amount}</span>
       </div>
-      <Button onClick={props.onClose}>CLOSE</Button>
-      <Button>PURCHASE</Button>
+      <Button onClick={props.onClose} className="btn btn-order">
+        CLOSE
+      </Button>
+      <Button className="btn btn-order">PURCHASE</Button>
     </Modal>
   );
 };

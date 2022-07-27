@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Header from "./components/Layout/Header";
 import Products from "./components/Product/Products";
@@ -12,6 +12,7 @@ import Home from "./screens/Home";
 
 import ContextProvider from "./store/ContextProvider";
 import "./App.css";
+import ContactUs from "./screens/ContactUs";
 
 function App() {
   const [isCartOpen, setCartOpen] = useState(false);
@@ -26,20 +27,28 @@ function App() {
     <ContextProvider>
       <Header onOpen={openHandler} />
       {isCartOpen && <Cart onClose={closeHandler} />}
-      <Route path="/About">
-        <About />
-      </Route>
-      <Route path="/Store">
-        <main>
-          <Products />
-        </main>
-        <Button onClick={openHandler} className="cart">
-          See the Cart
-        </Button>
-      </Route>
-      <Route path="/Home">
-        <Home />
-      </Route>
+      <Switch>
+        <Route path="/Contact" exact>
+          <ContactUs />
+        </Route>
+        <Route path="/About" exact>
+          <About />
+        </Route>
+        <Route path="/Store">
+          <main>
+            <Products />
+          </main>
+          <Button onClick={openHandler} className="cart">
+            See the Cart
+          </Button>
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/Home">
+          <Home />
+        </Route>
+      </Switch>
       <Footer />
     </ContextProvider>
   );

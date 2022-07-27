@@ -31,6 +31,11 @@ const Header = (props) => {
             </NavLink>
           </li>
           <li>
+            <NavLink className="link" activeClassName="active" to="/Contact">
+              Contact Us
+            </NavLink>
+          </li>
+          <li>
             <Button onClick={props.onOpen}>Cart </Button>({totalQuantity})
           </li>
         </ul>

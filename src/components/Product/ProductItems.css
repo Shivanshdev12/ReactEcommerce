@@ -17,5 +17,7 @@ ul.product-items li img {
 
 .btn-purchase {
     background-color: #56CCF2;
+    padding: 10px 20px;
+    border-radius: 10px;
     color: #fff;
 }
