@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../UI/Button";
 import ProductItems from "./ProductItems";
 import "./Products.css";
 

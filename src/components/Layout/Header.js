@@ -16,27 +16,27 @@ const Header = (props) => {
       <div className="container">
         <ul className="header-items">
           <li>
-            <NavLink className="link" activeClassName="active" to="/Home">
+            <NavLink className="link" activeClassName="active" to="/home">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" activeClassName="active" to="/Store">
+            <NavLink className="link" activeClassName="active" to="/store">
               Store
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" activeClassName="active" to="/About">
+            <NavLink className="link" activeClassName="active" to="/about">
               About
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" activeClassName="active" to="/Contact">
+            <NavLink className="link" activeClassName="active" to="/contact">
               Contact Us
             </NavLink>
           </li>
           <li>
-            <Button onClick={props.onOpen}>Cart </Button>({totalQuantity})
+            <Button onClick={props.onOpen} className="btn">Cart </Button>({totalQuantity})
           </li>
         </ul>
       </div>

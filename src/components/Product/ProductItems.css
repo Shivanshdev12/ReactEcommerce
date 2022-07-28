@@ -20,4 +20,5 @@ ul.product-items li img {
     padding: 10px 20px;
     border-radius: 10px;
     color: #fff;
+    text-decoration: none;
 }

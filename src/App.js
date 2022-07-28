@@ -1,18 +1,18 @@
+import { Redirect, Route, Switch } from "react-router-dom";
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
 
-import Header from "./components/Layout/Header";
+import ProductsPage from "./components/Product/ProductsPage";
+import ContextProvider from "./store/ContextProvider";
 import Products from "./components/Product/Products";
 import Footer from "./components/Layout/Footer";
+import Header from "./components/Layout/Header";
 import Button from "./components/UI/Button";
+import ContactUs from "./screens/ContactUs";
 import Cart from "./components/Cart/Cart";
-
 import About from "./screens/About";
 import Home from "./screens/Home";
 
-import ContextProvider from "./store/ContextProvider";
 import "./App.css";
-import ContactUs from "./screens/ContactUs";
 
 function App() {
   const [isCartOpen, setCartOpen] = useState(false);
@@ -28,13 +28,16 @@ function App() {
       <Header onOpen={openHandler} />
       {isCartOpen && <Cart onClose={closeHandler} />}
       <Switch>
-        <Route path="/Contact" exact>
+        <Route path="/product-detail/:id">
+          <ProductsPage />
+        </Route>
+        <Route path="/contact" exact>
           <ContactUs />
         </Route>
-        <Route path="/About" exact>
+        <Route path="/about" exact>
           <About />
         </Route>
-        <Route path="/Store">
+        <Route path="/store">
           <main>
             <Products />
           </main>
@@ -42,10 +45,10 @@ function App() {
             See the Cart
           </Button>
         </Route>
-        <Route path="/">
-          <Home />
+        <Route path="/" exact>
+          <Redirect to="/home" />
         </Route>
-        <Route path="/Home">
+        <Route path="/home">
           <Home />
         </Route>
       </Switch>
