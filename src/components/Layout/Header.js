@@ -28,7 +28,7 @@ const Header = (props) => {
               Home
             </NavLink>
           </li>
-          {<li>
+          {isToken !== null && <li>
             <NavLink className="link" activeClassName="active" to="/store">
               Store
             </NavLink>
