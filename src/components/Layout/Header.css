@@ -12,6 +12,13 @@
     justify-content: space-around;
     align-items: flex-start;
     column-gap: 1px;
+    font-size: calc(15px + 10%);
+}
+
+@media screen and (max-width: 768px) {
+    .header-items {
+        font-size: 10px;
+    }
 }
 
 ul.header-items li {

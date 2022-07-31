@@ -1,5 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Route, useParams } from "react-router-dom";
+import ContactUs from "../../screens/ContactUs";
 import "./ProductsPage.css";
 
 const PRODUCTS_ARR = [
@@ -33,26 +34,17 @@ const ProductsPage = () => {
   const params = useParams();
   const product = PRODUCTS_ARR.find((product) => product.id === +params.id);
   return (
-    <React.Fragment>
+    <Fragment>
       <section className="products-page">
         <img src={product.imageUrl} alt={product.title} />
         <div className="product-detail">
           <p><span>Product:</span></p>
           <h2>{product.title}</h2>
           <h3><span>Price: </span>${product.price}</h3>
-          <h4>Lorem ipsum</h4>
+          <h5>This music CD features four songs: "Bumblebee," "Tricycle," "Pizza," and "Tickle." The song "Bumblebee" is about a small bumblebee who learns to fly and doesn't need anyone's help. The song "Tricycle" is about a little girl who rides her tricycle to the store and buys a treat. The song "Pizza" is about a hungry pizza who eats all the pizza in the world and then goes to sleep</h5>
         </div>
       </section>
-      <hr />
-      <section className="reviews">
-        <h3>Reviews</h3>
-        <ul className="review-list">
-          <li>⭐⭐⭐⭐ <span>Nice Work</span></li>
-          <li>⭐⭐⭐ <span>Good</span></li>
-          <li>⭐⭐⭐⭐<span>Nice Product</span></li>
-        </ul>
-      </section>
-    </React.Fragment>
+    </Fragment>
   )
 };
 

@@ -4,6 +4,7 @@ ul.product-items {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    width: 40%;
 }
 
 ul.product-items li {
@@ -11,7 +12,7 @@ ul.product-items li {
 }
 
 ul.product-items li img {
-    width: 80%;
+    width: 40%;
     text-align: center;
 }
 

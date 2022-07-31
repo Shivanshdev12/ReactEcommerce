@@ -2,11 +2,13 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import React, { useState } from "react";
 
 import ProductsPage from "./components/Product/ProductsPage";
-import ContextProvider from "./store/ContextProvider";
+import ContextProvider from "./store/CartContext/ContextProvider";
+import AuthProvider from "./store/AuthContext/AuthProvider";
 import Products from "./components/Product/Products";
 import Footer from "./components/Layout/Footer";
 import Header from "./components/Layout/Header";
 import Button from "./components/UI/Button";
+import LoginForm from "./screens/LoginForm";
 import ContactUs from "./screens/ContactUs";
 import Cart from "./components/Cart/Cart";
 import About from "./screens/About";
@@ -24,36 +26,41 @@ function App() {
   };
 
   return (
-    <ContextProvider>
-      <Header onOpen={openHandler} />
-      {isCartOpen && <Cart onClose={closeHandler} />}
-      <Switch>
-        <Route path="/product-detail/:id">
-          <ProductsPage />
-        </Route>
-        <Route path="/contact" exact>
-          <ContactUs />
-        </Route>
-        <Route path="/about" exact>
-          <About />
-        </Route>
-        <Route path="/store">
-          <main>
-            <Products />
-          </main>
-          <Button onClick={openHandler} className="cart">
-            See the Cart
-          </Button>
-        </Route>
-        <Route path="/" exact>
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-      </Switch>
-      <Footer />
-    </ContextProvider>
+    <AuthProvider>
+      <ContextProvider>
+        <Header onOpen={openHandler} />
+        {isCartOpen && <Cart onClose={closeHandler} />}
+        <Switch>
+          <Route path="/product-detail/:id">
+            <ProductsPage />
+          </Route>
+          <Route path="/contact" exact>
+            <ContactUs />
+          </Route>
+          <Route path="/about" exact>
+            <About />
+          </Route>
+          <Route path="/login" exact>
+            <LoginForm />
+          </Route>
+          <Route path="/store">
+            <main>
+              <Products />
+            </main>
+            <Button onClick={openHandler} className="cart">
+              See the Cart
+            </Button>
+          </Route>
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+        </Switch>
+        <Footer />
+      </ContextProvider>
+    </AuthProvider>
   );
 }
 
