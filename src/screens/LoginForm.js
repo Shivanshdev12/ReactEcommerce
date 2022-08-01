@@ -42,7 +42,7 @@ const LoginForm = () => {
                     })
                 }
             }).then((data) => {
-                authctx.login(data.idToken);
+                authctx.login(data.idToken, enteredEmail);
                 history.replace("/");
             })
             .catch((err) => window.alert(err.message));

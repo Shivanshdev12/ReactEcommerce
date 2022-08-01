@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartContext from "../../store/CartContext/cart-context";
 import AuthContext from "../../store/AuthContext/auth-context";
 import Button from "../UI/Button";
@@ -8,15 +8,20 @@ import "./Header.css";
 const Header = (props) => {
   const ctxobj = useContext(CartContext);
   const authctx = useContext(AuthContext);
-  const history = useHistory();
-  let totalQuantity = 0;
+  // const [totalAdded, setTotalAdded] = useState(0);
   const items = ctxobj.items;
+  let totalQuantity = 0;
   for (let i = 0; i < items.length; i++) {
     totalQuantity = totalQuantity + items[i].quantity;
   }
+  // useEffect(() => {
+  //   localStorage.setItem("totalQuantity", totalQuantity);
+  // }, [totalQuantity]);
+
   const isToken = localStorage.getItem('token');
   const logoutHandler = () => {
     authctx.logout();
+    localStorage.removeItem('email');
     window.location.reload();
   }
   return (

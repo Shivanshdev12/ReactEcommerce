@@ -1,19 +1,74 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import CartContext from "../../store/CartContext/cart-context";
 import Modal from "../UI/Modal";
 import Button from "../UI/Button";
-import CartItem from "./CartItem";
+import axios from "axios";
 import "./Cart.css";
+import "./CartItem.css";
 
 const Cart = (props) => {
-  const ctxobj = useContext(CartContext);
   let amount = 0;
+  const ctxobj = useContext(CartContext);
+  const [items, setItems] = useState([]);
+
+  let username = localStorage.getItem("email");
+  username = username.substring(0, username.lastIndexOf("@"));
+
+  useEffect(() => {
+    axios.get(`https://crudcrud.com/api/db6f856867034225a11ee42e2ab84391/${username}`)
+      .then((res) => {
+        setItems([...res.data]);
+      })
+      .catch(err => console.log(err))
+  }, []);
+
   ctxobj.items.map((item) => {
     amount = amount + Number(item.quantity) * Number(item.price);
   });
+
+  //Remove Handler
+  const removeHandler = (item) => {
+    const deleteIndex = items.findIndex(each => each.id == item.id);
+    axios.delete(`https://crudcrud.com/api/db6f856867034225a11ee42e2ab84391/${username}/${item._id}`)
+      .then((res) => {
+        window.location.reload();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    ctxobj.removeItem(item);
+  }
+
+  const cartItems = (
+    <ul className="cart-items">
+      <li>
+        <h4>ITEM</h4>
+        <h4>PRICE</h4>
+        <h4>QUANTITY</h4>
+      </li>
+      <hr />
+      {items.map((item) => (
+        <li key={Math.random() * 10}>
+          <img src={item.imageUrl} alt={item.title} className="cart-img" />
+          <p>{item.title}</p>
+          <p>
+            <b>{item.quantity}</b>
+          </p>
+          <Button className="btn-remove" onClick={removeHandler.bind(null, item)}>
+            REMOVE
+          </Button>
+        </li>
+      ))}
+      <hr />
+    </ul>
+  );
+
   return (
     <Modal>
-      <CartItem />
+      <div>
+        <h3>CART</h3>
+        {cartItems}
+      </div>
       <div className="total">
         <span>
           <b>Total </b>

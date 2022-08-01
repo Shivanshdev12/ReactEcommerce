@@ -4,9 +4,10 @@ import AuthContext from "./auth-context";
 const AuthProvider = (props) => {
     const [token, setToken] = useState(null);
     const isLoggedIn = !!token;
-    const loginHandler = (tokenId) => {
+    const loginHandler = (tokenId, email) => {
         setToken(tokenId);
         localStorage.setItem("token", tokenId);
+        localStorage.setItem("email", email);
     }
     const logoutHandler = () => {
         setToken(null);
