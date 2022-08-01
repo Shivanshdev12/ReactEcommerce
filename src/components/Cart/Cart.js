@@ -15,21 +15,22 @@ const Cart = (props) => {
   username = username.substring(0, username.lastIndexOf("@"));
 
   useEffect(() => {
-    axios.get(`https://crudcrud.com/api/db6f856867034225a11ee42e2ab84391/${username}`)
+    axios.get(`https://crudcrud.com/api/094200a2e139484c91fa8e16b2565eb0/${username}`)
       .then((res) => {
         setItems([...res.data]);
       })
       .catch(err => console.log(err))
+    // return () => { };
   }, []);
 
-  ctxobj.items.map((item) => {
+  items.map((item) => {
     amount = amount + Number(item.quantity) * Number(item.price);
   });
 
   //Remove Handler
   const removeHandler = (item) => {
     const deleteIndex = items.findIndex(each => each.id == item.id);
-    axios.delete(`https://crudcrud.com/api/db6f856867034225a11ee42e2ab84391/${username}/${item._id}`)
+    axios.delete(`https://crudcrud.com/api/094200a2e139484c91fa8e16b2565eb0/${username}/${item._id}`)
       .then((res) => {
         window.location.reload();
       })
@@ -51,6 +52,7 @@ const Cart = (props) => {
         <li key={Math.random() * 10}>
           <img src={item.imageUrl} alt={item.title} className="cart-img" />
           <p>{item.title}</p>
+          <p>{item.price}</p>
           <p>
             <b>{item.quantity}</b>
           </p>
