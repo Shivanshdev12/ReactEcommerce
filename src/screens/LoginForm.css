@@ -27,3 +27,11 @@ p span {
     color: #3988e2;
     cursor: pointer;
 }
+
+.btn-submit {
+    margin-top: 2.5%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #455d7a;
+}

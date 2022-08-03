@@ -3,23 +3,11 @@ import { NavLink } from "react-router-dom";
 import CartContext from "../../store/CartContext/cart-context";
 import AuthContext from "../../store/AuthContext/auth-context";
 import Button from "../UI/Button";
-import axios from "axios";
 import "./Header.css";
 
 const Header = (props) => {
   const ctxobj = useContext(CartContext);
   const authctx = useContext(AuthContext);
-  const [total, setTotal] = useState(ctxobj.items.length);
-  let username = localStorage.getItem("email");
-  username = username.substring(0, username.lastIndexOf("@"));
-  // useEffect(() => {
-  //   axios.get(`https://crudcrud.com/api/094200a2e139484c91fa8e16b2565eb0/${username}`)
-  //     .then((res) => {
-  //       totalQuantity = res.data.length;
-  //     })
-  //     .catch(err => console.log(err));
-  // }, []);
-  // console.log(totalQuantity);
   let totalQuantity = 0;
   for (let i = 0; i < ctxobj.items.length; i++) {
     totalQuantity = totalQuantity + ctxobj.items[i].quantity;

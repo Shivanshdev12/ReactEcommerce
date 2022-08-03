@@ -15,12 +15,11 @@ const Cart = (props) => {
   username = username.substring(0, username.lastIndexOf("@"));
 
   useEffect(() => {
-    axios.get(`https://crudcrud.com/api/094200a2e139484c91fa8e16b2565eb0/${username}`)
+    axios.get(`https://crudcrud.com/api/61a1452395464120aed6eb6e90ecaabd/${username}`)
       .then((res) => {
         setItems([...res.data]);
       })
       .catch(err => console.log(err))
-    // return () => { };
   }, []);
 
   items.map((item) => {
@@ -30,7 +29,7 @@ const Cart = (props) => {
   //Remove Handler
   const removeHandler = (item) => {
     const deleteIndex = items.findIndex(each => each.id == item.id);
-    axios.delete(`https://crudcrud.com/api/094200a2e139484c91fa8e16b2565eb0/${username}/${item._id}`)
+    axios.delete(`https://crudcrud.com/api/61a1452395464120aed6eb6e90ecaabd/${username}/${item._id}`)
       .then((res) => {
         window.location.reload();
       })

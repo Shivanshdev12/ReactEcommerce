@@ -26,6 +26,9 @@ const ContactUs = () => {
       if (!response.ok) {
         throw new Error("Something went wrong!!");
       }
+      else {
+        console.log(response.body);
+      }
     } catch (err) {
       console.log(err.message);
     }

@@ -3,14 +3,15 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 import Button from "../../UI/Button";
-import Cart from "../../Cart/Cart";
 import ProductsPage from "../../Product/ProductsPage";
-import ContactUs from "../../../screens/ContactUs";
-import About from "../../../screens/About";
 import LoginForm from "../../../screens/LoginForm";
 import Products from "../../Product/Products";
 import Home from "../../../screens/Home";
 import AuthContext from "../../../store/AuthContext/auth-context";
+
+const Cart = React.lazy(() => import("../../Cart/Cart"));
+const ContactUs = React.lazy(() => import("../../../screens/ContactUs"));
+const About = React.lazy(() => import("../../../screens/About"));
 
 const MainNavigation = () => {
     const [isCartOpen, setCartOpen] = useState(false);
