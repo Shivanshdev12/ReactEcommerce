@@ -16,10 +16,10 @@ const LoginForm = () => {
         const enteredPassword = passwordInputRef.current.value;
         let url = "";
         if (!isLogin) {
-            url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDjjjbZLkA1ogi0bQ1n2fqTtnk9wrhc01I";
+            url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDVnZwisyOBwS2ZYKdNrypaW5GZ0n8lz54";
         }
         else {
-            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDjjjbZLkA1ogi0bQ1n2fqTtnk9wrhc01I";
+            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDVnZwisyOBwS2ZYKdNrypaW5GZ0n8lz54";
         }
         fetch(url, {
             method: "POST",

@@ -1,8 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Button from "../components/UI/Button";
 import "./ContactUs.css";
 
 const ContactUs = () => {
+  const history = useHistory();
   async function formHandler(e) {
     e.preventDefault();
     const queryObj = {
@@ -14,7 +16,7 @@ const ContactUs = () => {
     // console.log(queryObj);
     try {
       const response = await fetch(
-        "https://ecommerce-2210-default-rtdb.firebaseio.com/contacts.json",
+        "https://ecommercestore-7db74-default-rtdb.firebaseio.com/contacts.json",
         {
           method: "POST",
           body: JSON.stringify(queryObj),
@@ -27,7 +29,8 @@ const ContactUs = () => {
         throw new Error("Something went wrong!!");
       }
       else {
-        console.log(response.body);
+        window.alert("Query Registered!");
+        history.replace("/home");
       }
     } catch (err) {
       console.log(err.message);

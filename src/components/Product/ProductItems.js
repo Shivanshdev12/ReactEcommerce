@@ -8,10 +8,19 @@ import "./ProductItems.css";
 const ProductItems = (props) => {
   const ctxobj = useContext(CartContext);
   let username = localStorage.getItem("email");
-  username = username.substring(0, username.lastIndexOf("@"));
+  let t = "";
+  for (let i = 0; i < username.length; i++) {
+    if (username[i] == '.' || username[i] == '@') {
+      continue;
+    }
+    else {
+      t += username[i];
+    }
+  }
+  username = t;
 
   const addHandler = () => {
-    axios.post(`https://crudcrud.com/api/61a1452395464120aed6eb6e90ecaabd/${username}`, {
+    axios.post(`https://crudcrud.com/api/c9afa3f634c34fec9f93d86f8375bad9/${username}`, {
       ...props.item, quantity: 1
     })
       .then((res) => ctxobj.addItem(res.data))

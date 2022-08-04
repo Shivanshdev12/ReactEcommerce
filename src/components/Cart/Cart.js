@@ -12,10 +12,19 @@ const Cart = (props) => {
   const [items, setItems] = useState([]);
 
   let username = localStorage.getItem("email");
-  username = username.substring(0, username.lastIndexOf("@"));
+  let t = "";
+  for (let i = 0; i < username.length; i++) {
+    if (username[i] === '.' || username[i] === '@') {
+      continue;
+    }
+    else {
+      t += username[i];
+    }
+  }
+  username = t;
 
   useEffect(() => {
-    axios.get(`https://crudcrud.com/api/61a1452395464120aed6eb6e90ecaabd/${username}`)
+    axios.get(`https://crudcrud.com/api/c9afa3f634c34fec9f93d86f8375bad9/${username}`)
       .then((res) => {
         setItems([...res.data]);
       })
@@ -29,7 +38,7 @@ const Cart = (props) => {
   //Remove Handler
   const removeHandler = (item) => {
     const deleteIndex = items.findIndex(each => each.id == item.id);
-    axios.delete(`https://crudcrud.com/api/61a1452395464120aed6eb6e90ecaabd/${username}/${item._id}`)
+    axios.delete(`https://crudcrud.com/api/c9afa3f634c34fec9f93d86f8375bad9/${username}/${item._id}`)
       .then((res) => {
         window.location.reload();
       })
