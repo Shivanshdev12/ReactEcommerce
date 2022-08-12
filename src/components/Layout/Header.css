@@ -1,6 +1,5 @@
 .container {
     text-align: center;
-    width: 100%;
     background-color: #20232A;
     color: #fff;
     margin-top: -1em;
@@ -10,14 +9,14 @@
 .header-items {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
-    column-gap: 1px;
+    align-items: center;
+    column-gap: 2px;
     font-size: calc(15px + 10%);
 }
 
 @media screen and (max-width: 768px) {
     .header-items {
-        font-size: 10px;
+        font-size: 0.75rem;
     }
 }
 
@@ -41,4 +40,17 @@ ul.header-items li {
 .active {
     color: rgb(83, 154, 182);
     text-decoration: none;
+}
+
+.btn-logout {
+    border: none;
+    color: #fff;
+    background-color: transparent;
+}
+
+.btn-transparent {
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    font-size: calc(15px + 10%);
 }

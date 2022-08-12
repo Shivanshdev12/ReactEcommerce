@@ -2,9 +2,14 @@
     display: flex;
     position: sticky;
     justify-content: space-around;
+    align-items: center;
     background-color: #20232A;
     margin-bottom: -10%;
     margin-top: 8.15rem;
-    padding: 1em 0 1em 0;
+    padding: 0.5em 0 0.5em 0;
     color: #fff;
+}
+
+span.icon {
+    font-size: 1.05em;
 }

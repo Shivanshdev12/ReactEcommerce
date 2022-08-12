@@ -54,3 +54,23 @@
     border-radius: 5px;
     font-weight: 700;
 }
+
+@media screen and (max-width:425px) {
+    #tours .tour-item .tour-spec-place {
+        font-size: 12px;
+    }
+
+    #tours .tour-item .tour-date {
+        font-size: 10px;
+    }
+
+    #tours .tour-item .tour-place {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .btn-buy {
+        font-size: 8px;
+    }
+}

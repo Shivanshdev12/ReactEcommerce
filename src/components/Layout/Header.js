@@ -1,5 +1,6 @@
-import React, { Fragment, useContext, useState, useEffect, useCallback } from "react";
+import React, { Fragment, useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartContext from "../../store/CartContext/cart-context";
 import AuthContext from "../../store/AuthContext/auth-context";
 import Button from "../UI/Button";
@@ -43,21 +44,21 @@ const Header = (props) => {
               SignIn
             </NavLink>
           </li>}
-          {isToken !== null && <li>
-            <Button onClick={logoutHandler}>Logout</Button>
-          </li>}
           <li>
             <NavLink className="link" activeClassName="active" to="/contact">
-              Contact Us
+              Contact
             </NavLink>
           </li>
           {isToken !== null && <li>
-            <Button onClick={props.onOpen} className="btn">Cart </Button>({totalQuantity})
+            <Button className="btn-logout" onClick={logoutHandler}>Logout</Button>
+          </li>}
+          {isToken !== null && <li>
+            <Button onClick={props.onOpen} className="btn-transparent">Cart<AiOutlineShoppingCart /></Button>
           </li>}
         </ul>
       </div>
       <div className="header">
-        <h1>Ecomm Store</h1>
+        <h2>Ecomm Store</h2>
       </div>
     </Fragment>
   );

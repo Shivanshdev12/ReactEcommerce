@@ -4,8 +4,15 @@ ul.product-items {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 40%;
+    row-gap: 10px;
 }
+
+@media screen and (max-width:375px) {
+    .btn-purchase {
+        font-size: 12px;
+    }
+}
+
 
 ul.product-items li {
     list-style: none;
@@ -14,6 +21,7 @@ ul.product-items li {
 ul.product-items li img {
     width: 40%;
     text-align: center;
+    border-radius: 15px;
 }
 
 .btn-purchase {
@@ -22,4 +30,5 @@ ul.product-items li img {
     border-radius: 10px;
     color: #fff;
     text-decoration: none;
+    margin: 0px 1px 0px 1px
 }
