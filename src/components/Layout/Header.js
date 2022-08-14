@@ -53,7 +53,7 @@ const Header = (props) => {
             <Button className="btn-logout" onClick={logoutHandler}>Logout</Button>
           </li>}
           {isToken !== null && <li>
-            <Button onClick={props.onOpen} className="btn-transparent">Cart<AiOutlineShoppingCart /></Button>
+            <Button onClick={props.onOpen} className="btn-transparent"><AiOutlineShoppingCart /></Button>
           </li>}
         </ul>
       </div>

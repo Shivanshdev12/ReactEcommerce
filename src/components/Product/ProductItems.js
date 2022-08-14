@@ -23,7 +23,7 @@ const ProductItems = (props) => {
     if (username == "") {
       window.alert("Please login first");
     }
-    axios.post(`https://crudcrud.com/api/518e797dd07d4b30b23d504feb5743e7/${username}`, {
+    axios.post(`https://crudcrud.com/api/fda181edef5f423396dd9773ae14d8c2/${username}`, {
       ...props.item, quantity: 1
     })
       .then((res) => ctxobj.addItem(res.data))
@@ -44,9 +44,11 @@ const ProductItems = (props) => {
         <Button className="btn-purchase" onClick={addHandler}>
           Add to Cart
         </Button>
-        <NavLink className="btn btn-purchase" state={props.item} to={`/product-detail/${props.id}`}>
-          Check product
-        </NavLink>
+        <Button>
+          <NavLink className="btn btn-purchase" state={props.item} to={`/product-detail/${props.id}`}>
+            Check product
+          </NavLink>
+        </Button>
       </li>
     </ul >
   );

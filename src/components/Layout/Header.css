@@ -12,6 +12,7 @@
     align-items: center;
     column-gap: 2px;
     font-size: calc(15px + 10%);
+    margin-right: 1em;
 }
 
 @media screen and (max-width: 768px) {
