@@ -58,7 +58,7 @@ const Header = (props) => {
         </ul>
       </div>
       <div className="header">
-        <h2>Ecomm Store</h2>
+        <h3>Ecomm Store</h3>
       </div>
     </Fragment>
   );

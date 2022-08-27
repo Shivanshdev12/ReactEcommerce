@@ -45,7 +45,7 @@ const ProductItems = (props) => {
           Add to Cart
         </Button>
         <Button>
-          <NavLink className="btn btn-purchase" state={props.item} to={`/product-detail/${props.id}`}>
+          <NavLink state={props.item} className="btn-checkout" to={`/product-detail/${props.id}`}>
             Check product
           </NavLink>
         </Button>
