@@ -23,7 +23,7 @@ const ProductItems = (props) => {
     if (username == "") {
       window.alert("Please login first");
     }
-    axios.post(`https://crudcrud.com/api/fda181edef5f423396dd9773ae14d8c2/${username}`, {
+    axios.post(`https://crudcrud.com/api/d27bbd24280c47409b39e120b1c4f2cf/${username}`, {
       ...props.item, quantity: 1
     })
       .then((res) => ctxobj.addItem(res.data))

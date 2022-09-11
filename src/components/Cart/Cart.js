@@ -24,7 +24,7 @@ const Cart = (props) => {
   username = t;
 
   useEffect(() => {
-    axios.get(`https://crudcrud.com/api/fda181edef5f423396dd9773ae14d8c2/${username}`)
+    axios.get(`https://crudcrud.com/api/d27bbd24280c47409b39e120b1c4f2cf/${username}`)
       .then((res) => {
         setItems([...res.data]);
       })
@@ -37,7 +37,7 @@ const Cart = (props) => {
 
   //Remove Handler
   const removeHandler = (item) => {
-    axios.delete(`https://crudcrud.com/api/fda181edef5f423396dd9773ae14d8c2/${username}/${item._id}`)
+    axios.delete(`https://crudcrud.com/api/d27bbd24280c47409b39e120b1c4f2cf/${username}/${item._id}`)
       .then((res) => {
         window.location.reload();
       })
